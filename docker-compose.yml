@@ -1,0 +1,17 @@
+version: '2'
+services:
+    amrs:
+        container_name: ampath_amrs_test
+        image: ampath/amrs-test
+        env_file: main.env
+        volumes:
+            - /home/achachiez/Code/openmrs-home:/root/.OpenMRS
+        restart: unless-stopped
+        # deploy:
+        #   mode: replicated
+        #   replicas: 1
+        #   placement:
+        #     constraints:
+        #      - node.hostname == upgrade1
+        ports:
+            - 8082:8080
