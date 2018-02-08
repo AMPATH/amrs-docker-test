@@ -17,7 +17,9 @@ ENV OPENMRS_MYSQL_PORT="3306"
 # Unzip modules and copy to module/ref folder 
 # Create database and setup openmrs db user
 COPY openmrs.war /root/temp/
-COPY ./data/demo.sql /root/temp/
+COPY ./data.tar.gz /root/temp/
+RUN tar zxvf /root/temp/data.tar.gz -C .
+RUN mv data /root/temp
 RUN mkdir -p ${OPENMRS_HOME}
 RUN apt-get update && apt-get install -y mysql-client libxml2-utils \
     && mkdir -p /root/temp/modules

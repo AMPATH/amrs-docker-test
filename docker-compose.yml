@@ -4,8 +4,6 @@ services:
         container_name: ampath_amrs_test
         image: ampath/amrs-test
         env_file: main.env
-        volumes:
-            - /home/achachiez/Code/openmrs-home:/root/.OpenMRS
         restart: unless-stopped
         # deploy:
         #   mode: replicated
